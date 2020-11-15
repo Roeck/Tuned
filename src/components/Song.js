@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Song = () => {
+const Song=() => {
     return (
         <div className="song-container">
             <h1>Picture</h1>
