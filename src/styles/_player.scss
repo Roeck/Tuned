@@ -7,3 +7,15 @@
     justify-content: space-between;
 }
 
+.time-control {
+    width: 50%;
+    background: lightblue;
+    display: flex;
+    input {
+        width: 100%;
+        padding: 1rem 2rem;
+    }
+    p {
+        padding: 1rem;
+    }
+}
