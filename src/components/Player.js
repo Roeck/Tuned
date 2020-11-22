@@ -7,7 +7,7 @@ const Player=({currentSong}) => {
     const audioRef=useRef(null);
 
     const playSongHandler=() => {
-        console.log(audioRef)
+        console.log(audioRef.current)
     }
 
     return (
