@@ -36,16 +36,16 @@ const Player=({currentSong,isPlaying,setIsPlaying}) => {
     return (
         <div className="player">
             <div className="time-control">
-                <p>{songInfo.currentTime}</p>
+                <p>{getTime(songInfo.currentTime)}</p>
                 <input type="range" />
-                <p>End Time</p>
+                <p>getTime{songInfo.duration}</p>
             </div>
             <div className="play-control">
                 <FontAwesomeIcon className="skip-back" size="3x" color="blue" icon={faAngleLeft} />
                 <FontAwesomeIcon onClick={playSongHandler} className="play" size="3x" color="blue" icon={faPlayCircle} />
                 <FontAwesomeIcon className="skip-forward" size="3x" color="blue" icon={faAngleRight} />
             </div>
-            <audio onTimeUpdate={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
+            <audio onTimeUpdate={timeUpdateHandler} onLoadedMetadata={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
         </div>
     );
 };
