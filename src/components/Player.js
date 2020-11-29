@@ -19,7 +19,13 @@ const Player=({currentSong,isPlaying,setIsPlaying}) => {
     const timeUpdateHandler=(e) => {
         const current=e.target.currentTime;
         const duration=e.target.duration;
-        setSongInfo({...songInfo,currentTime: current})
+        setSongInfo({...songInfo,currentTime: current,duration})
+    }
+
+    const getTime=(time) => {
+        return (
+            Math.floor(time/60)+":"+("0"+Math.floor(time%60)).slice(-2)
+        )
     }
 
     const [songInfo,setSongInfo]=useState({
@@ -30,7 +36,7 @@ const Player=({currentSong,isPlaying,setIsPlaying}) => {
     return (
         <div className="player">
             <div className="time-control">
-                <p>Start Time</p>
+                <p>{songInfo.currentTime}</p>
                 <input type="range" />
                 <p>End Time</p>
             </div>
