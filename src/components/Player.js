@@ -1,4 +1,4 @@
-import React,{useRef} from 'react';
+import React,{useRef,useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlayCircle,faAngleLeft,faAngleRight} from '@fortawesome/free-solid-svg-icons';
 
@@ -16,6 +16,17 @@ const Player=({currentSong,isPlaying,setIsPlaying}) => {
         }
     }
 
+    const timeUpdateHandler=(e) => {
+        const current=e.target.currentTime;
+        const duration=e.target.duration;
+        setSongInfo({...songInfo,currentTime: current})
+    }
+
+    const [songInfo,setSongInfo]=useState({
+        currentTime: null;
+        duration: null;
+    })
+
     return (
         <div className="player">
             <div className="time-control">
@@ -28,7 +39,7 @@ const Player=({currentSong,isPlaying,setIsPlaying}) => {
                 <FontAwesomeIcon onClick={playSongHandler} className="play" size="3x" color="blue" icon={faPlayCircle} />
                 <FontAwesomeIcon className="skip-forward" size="3x" color="blue" icon={faAngleRight} />
             </div>
-            <audio ref={audioRef} src={currentSong.audio}></audio>
+            <audio onTimeUpdate={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
         </div>
     );
 };
