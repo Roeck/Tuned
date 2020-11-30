@@ -1,5 +1,5 @@
 import React from "react";
-import {playAudio} from "../util";
+import {playAudio} from "../data";
 
 const LibrarySong=({
     name,
