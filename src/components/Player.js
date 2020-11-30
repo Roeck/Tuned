@@ -8,7 +8,7 @@ import {
     faVolumeDown,
 } from "@fortawesome/free-solid-svg-icons";
 
-import {playAudio} from "../data";
+import {playAudio} from "../util";
 
 const Player=({
     isPlaying,
