@@ -61,7 +61,7 @@ const Player=({
     const skipTrackHandler=async (direction) => {
         let currentIndex=songs.findIndex((song) => song.id===currentSong.id);
 
-        //Forward BAck
+        //Forward and Back
         if(direction==="skip-forward") {
             await setCurrentSong(songs[(currentIndex+1)%songs.length]);
             activeLibraryHandler(songs[(currentIndex+1)%songs.length]);
@@ -106,9 +106,9 @@ const Player=({
                 <p>{songInfo.duration? getTime(songInfo.duration):"0:00"}</p>
             </div>
             <div className="play-control">
-                <FontAwesomeIcon className="skip-back" size="5x" color="darkGrey" icon={faAngleLeft} />
+                <FontAwesomeIcon onClick={() => skipTrackHandler('skip-back')} className="skip-back" size="5x" color="darkGrey" icon={faAngleLeft} />
                 <FontAwesomeIcon onClick={playSongHandler} className="play" size="6x" color="darkGrey" icon={faPlayCircle} icon={isPlaying? faPause:faPlayCircle} />
-                <FontAwesomeIcon className="skip-forward" size="5x" color="darkGrey" icon={faAngleRight} />
+                <FontAwesomeIcon onClick={() => skipTrackHandler('skip-forward')} className="skip-forward" size="5x" color="darkGrey" icon={faAngleRight} />
 
                 {activeVolume&&(
                     <input
