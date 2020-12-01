@@ -1,12 +1,6 @@
 import React,{useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {
-    faPlay,
-    faAngleLeft,
-    faAngleRight,
-    faPause,
-    faVolumeDown,
-} from "@fortawesome/free-solid-svg-icons";
+import {faPlayCircle,faAngleLeft,faAngleRight,faPause,faVolumeDown} from '@fortawesome/free-solid-svg-icons';
 
 import {playAudio} from "../util";
 
@@ -112,28 +106,10 @@ const Player=({
                 <p>{songInfo.duration? getTime(songInfo.duration):"0:00"}</p>
             </div>
             <div className="play-control">
-                <FontAwesomeIcon
-                    onClick={() => skipTrackHandler("skip-back")}
-                    className="skip-back"
-                    size="2x"
-                    icon={faAngleLeft}
-                />
-                <FontAwesomeIcon
-                    onClick={playSongHandler}
-                    className="play"
-                    size="2x"
-                    icon={isPlaying? faPause:faPlay}
-                />
-                <FontAwesomeIcon
-                    className="skip-forward"
-                    size="2x"
-                    icon={faAngleRight}
-                    onClick={() => skipTrackHandler("skip-forward")}
-                />
-                <FontAwesomeIcon
-                    onClick={() => setActiveVolume(!activeVolume)}
-                    icon={faVolumeDown}
-                />
+                <FontAwesomeIcon className="skip-back" size="5x" color="darkGrey" icon={faAngleLeft} />
+                <FontAwesomeIcon onClick={playSongHandler} className="play" size="6x" color="darkGrey" icon={faPlayCircle} icon={isPlaying? faPause:faPlayCircle} />
+                <FontAwesomeIcon className="skip-forward" size="5x" color="darkGrey" icon={faAngleRight} />
+
                 {activeVolume&&(
                     <input
                         onChange={changeVolume}
