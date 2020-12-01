@@ -4,6 +4,7 @@ import Player from './components/Player'
 import Song from './components/Song'
 import Library from './components/Library'
 import LibrarySong from './components/LibrarySong'
+import Nav from './components/Nav'
 import chillHop from './data';
 import {playAudio} from './util';
 
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className="App">
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player
         audioRef={audioRef}
